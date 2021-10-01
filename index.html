@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lommeregner</title>
+</head>
+<body>
+<input type="number" id="input1">
+<br>
+<span id="choice" style="position: absolute; left: 90px">none</span>
+<br>
+<input type="number" id="input2">
+<div style="position: absolute; left: 180px; top: 0px">
+    <button id="plus" style="font-family: monospace">+</button>
+    <br>
+    <button id="minus" style="font-family: monospace">-</button>
+    <br>
+    <button id="times" style="font-family: monospace">x</button>
+    <br>
+    <button id="divide" style="font-family: monospace">/</button>
+</div>
+<br>
+<p>Result: <span id="result"></span></p>
+</body>
+
+
+<script>
+
+    // variables
+    let input1 = document.getElementById('input1');
+    let input2 = document.getElementById('input2');
+    let plusButton = document.getElementById('plus');
+    let minusButton = document.getElementById('minus');
+    let timesButton = document.getElementById('times');
+    let divideButton = document.getElementById('divide');
+    let result = document.getElementById('result');
+    let choice = document.getElementById('choice');
+
+    // eventlisteners
+    plusButton.addEventListener("click", function (){
+        getAddition();
+        setChoice('+');
+    })
+    minusButton.addEventListener("click", function (){
+        getNegative();
+        setChoice('-');
+    })
+    timesButton.addEventListener("click", function (){
+        getTimes();
+        setChoice('*');
+    })
+    divideButton.addEventListener("click", function (){
+        getDivide();
+        setChoice('/');
+    })
+    // functions
+    function getAddition() {
+        console.log(Number(input1.value) + Number(input2.value));
+        result.textContent = Number(input1.value) + Number(input2.value);
+    }
+    function getNegative() {
+        console.log(Number(input1.value) - Number(input2.value));
+        result.textContent = Number(input1.value) - Number(input2.value);
+    }
+    function getTimes() {
+        console.log(Number(input1.value) * Number(input2.value));
+        result.textContent = Number(input1.value) * Number(input2.value);
+    }
+    function getDivide() {
+        console.log(Number(input1.value) / Number(input2.value));
+        result.textContent = Number(input1.value) / Number(input2.value);
+    }
+    // choice
+    function setChoice(sign) {
+        choice.textContent = sign;
+    }
+
+</script>
+</html>
